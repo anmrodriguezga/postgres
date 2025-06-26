@@ -1,0 +1,1 @@
+docker exec -it postgres_devcontainer-db-1 sudo -u postgres psql --host 0.0.0.0 --username postgres --password --dbname template1
