@@ -1,15 +1,20 @@
-FROM mcr.microsoft.com/devcontainers/python:1-3.11-bullseye
+FROM postgres:latest
 
-ENV PYTHONUNBUFFERED 1
+# Set environment variables (change values as needed)
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=postgres
+ENV POSTGRES_DB=dvdrental
 
-# [Optional] If your requirements rarely change, uncomment this section to add them to the image.
-# COPY requirements.txt /tmp/pip-tmp/
-# RUN pip3 --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requirements.txt \
-#    && rm -rf /tmp/pip-tmp
+USER root
+RUN apt-get update && apt-get install -y sudo wget unzip && rm -rf /var/lib/apt/lists/*
+COPY . /tmp/postgres
 
-# [Optional] Uncomment this section to install additional OS packages.
-# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#     && apt-get -y install --no-install-recommends <your-package-list-here>
+USER postgres
+WORKDIR /tmp
+RUN wget --no-check-certificate https://neon.tech/postgresqltutorial/dvdrental.zip && \
+    unzip dvdrental.zip
+    
+VOLUME ["/var/lib/postgresql/data"]
 
-
-
+# Expose the default PostgreSQL port
+EXPOSE 5432
