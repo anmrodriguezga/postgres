@@ -1,5 +1,5 @@
 # Start PostgreSQL container
-docker exec -it postgres_devcontainer-db-1 sudo -u postgres /bin/bash
+docker exec -it postgres_devcontainer-db-1 /bin/bash
 
 # Access dvdrental database
 docker exec -it postgres_devcontainer-db-1 sudo -u postgres psql --host 0.0.0.0 --username postgres --password --dbname dvdrental
