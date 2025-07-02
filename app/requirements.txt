@@ -1,2 +1,4 @@
-notebook
 ipykernel
+notebook
+psycopg2-binary
+pandas
