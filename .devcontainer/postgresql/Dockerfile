@@ -7,7 +7,7 @@ ENV POSTGRES_DB=dvdrental
 
 USER root
 RUN apt-get update && apt-get install -y sudo wget unzip && rm -rf /var/lib/apt/lists/*
-COPY . /tmp/postgres
+COPY ./db /tmp/db
 
 USER postgres
 WORKDIR /tmp
