@@ -4,4 +4,6 @@ SELECT
 FROM
     public.rental
 GROUP BY
-    customer_id;
+    customer_id
+LIMIT
+    10;

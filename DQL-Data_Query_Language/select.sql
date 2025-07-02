@@ -1,4 +1,6 @@
 SELECT
     *
 FROM
-    public.actor;
+    public.actor
+LIMIT
+    10;

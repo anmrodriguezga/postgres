@@ -3,4 +3,6 @@ SELECT
 FROM
     public.film
 WHERE
-    title LIKE 'African%';
+    title LIKE 'Af%'
+LIMIT
+    10;

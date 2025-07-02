@@ -6,4 +6,6 @@ FROM
 GROUP BY
     customer_id
 HAVING
-    count(rental_id) > 40;
+    count(rental_id) > 40
+LIMIT
+    10;
