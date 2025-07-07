@@ -21,7 +21,7 @@ services:
       - ../:/workspaces:cached
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_DB: dvdrental
+      POSTGRES_DB: platzimovies
       POSTGRES_PASSWORD: postgres
 
   adminer:
